@@ -6,8 +6,8 @@ const EXT_REGEX = /\.(ts|tsx|mts|cts)$/
 const SUFFIXES = [
   [/(?:\.[tj]s)?$/, '.js'],
   [/(?:\.[tj]s)?$/, '.ts'],
-  [/(?:[\/]?(?:index(?:\.[tj]s)?))?$/, '/index.js'],
-  [/(?:[\/]?(?:index(?:\.[tj]s)?))?$/, '/index.ts'],
+  [/(?:[\\/]?(?:index(?:\.[tj]s)?))?$/, '/index.js'],
+  [/(?:[\\/]?(?:index(?:\.[tj]s)?))?$/, '/index.ts'],
 ]
 
 /**
@@ -42,6 +42,7 @@ export async function load(url, context, defaultLoad) {
  */
 const resolvedPaths = new Map()
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function resolveURL(pathUrl, parentUrl, specifier) {
   if (resolvedPaths.has(pathUrl)) {
     return resolvedPaths.get(pathUrl)

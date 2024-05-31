@@ -1,11 +1,21 @@
-# run-ts
+# run-ts 🏃🏼
 
-A very basic package that to run typescript directly via node.
+A very basic package that to run typescript directly via node. Built for Node v20 >=.
+
+## Installation
+
+```
+npm i -D @cycraft/run-ts
+```
 
 ## Usage
-In Node > v20 use the `--import` flag to import the register code before executing your TS file directly:
-```sh
-node --import @cc/run-ts ./src/index.ts",
+
+Ise the `--import` flag to import the register code before executing your TS file directly:
+
+```json
+"scripts": {
+	"execute-my-script": "node --import @cycraft/run-ts ./src/index.ts",
+}
 ```
 
 ## Notes
@@ -18,7 +28,6 @@ node --import @cc/run-ts ./src/index.ts",
 > Does it do typechecking?
 
 No. It builds each file using esbuild when it's first imported, so doesn't do any typechecking. Use tsc or some other method to do typechecking.
-
 
 > Is it fast?
 
