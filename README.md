@@ -1,9 +1,9 @@
 # run-ts
+
 A very basic package that to run typescript directly via node.
 
-
 ## Usage
-In Node > v20 use the `--import` flag to import the register code before executing your TS file directly
+In Node > v20 use the `--import` flag to import the register code before executing your TS file directly:
 ```sh
 node --import @cc/run-ts ./src/index.ts",
 ```
@@ -13,7 +13,7 @@ node --import @cc/run-ts ./src/index.ts",
 > Is it flexible?
 > Is it generic?
 
-🤷 There's probably more flexible and generic ways of doing this. This however works for us, covering our use-cases.
+🤷 There's probably more flexible and generic ways of doing this. This however works for us, covering our use cases.
 
 > Does it do typechecking?
 
@@ -27,4 +27,4 @@ Additionally this is providing some assistance in how node resolves certain file
 
 > Should you use it?
 
-It's up to you. As mentioned above, it works for our use case
+It's up to you. As mentioned above, it works for our use cases.
