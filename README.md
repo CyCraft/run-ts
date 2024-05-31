@@ -14,7 +14,7 @@ Ise the `--import` flag to import the register code before executing your TS fil
 
 ```json
 "scripts": {
-	"execute-my-script": "node --import @cycraft/run-ts ./src/index.ts",
+  "execute-my-script": "node --import @cycraft/run-ts ./src/index.ts",
 }
 ```
 
