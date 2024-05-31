@@ -1,0 +1,27 @@
+{
+  "name": "run-ts",
+  "version": "1.0.0",
+  "description": "A package that allows to run node scripts written in TypeScript directly.",
+  "main": "index.js",
+  "type": "module",
+  "files": ["src"],
+  "private": true,
+  "module": "./src/run-ts.mjs",
+  "exports": {
+    "import": {
+      "default": "./src/run-ts.mjs"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.21.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CyCraft/run-ts"
+  }
+}
