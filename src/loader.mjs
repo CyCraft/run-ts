@@ -51,6 +51,11 @@ export async function load(url, context, defaultLoad) {
     }
   }
 
+  if (url.endsWith('.json')) {
+    // We need to assert that the type is json for json files
+    return defaultLoad(url, {...context, importAttributes: { type: 'json' } }, defaultLoad)
+  }
+
   return defaultLoad(url, context, defaultLoad)
 }
 
