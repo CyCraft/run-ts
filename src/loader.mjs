@@ -56,14 +56,6 @@ export async function load(url, context, defaultLoad) {
   return defaultLoad(url, context, defaultLoad)
 }
 
-async function getTsConfig() {
-  const filePath = path.resolve(process.cwd(), 'tsconfig.json')
-  if (await fileExists(filePath)) {
-    return readFile(filePath, 'utf8')
-  }
-
-}
-
 /** Cache urls so we don't have to check the same urls repeatedly, although I believe node does this
  * automatically. In the future we can preemptively add `index.js` etc. when we match other variants
  */
