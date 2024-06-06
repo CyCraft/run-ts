@@ -1,23 +1,20 @@
 import { transformSync } from 'esbuild'
 import { access } from 'node:fs'
-import {readFile} from 'node:fs/promises'
 import { URL, fileURLToPath, pathToFileURL } from 'node:url'
-import path from 'node:path'
 import ts from 'typescript'
+
 const EXT_REGEX = /\.(ts|tsx|mts|cts)$/
 const SUFFIXES = [
   [/(?:\.[tj]s)?$/, '.js'],
   [/(?:\.[tj]s)?$/, '.ts'],
-  [/(?:[\/]?(?:index(?:\.[tj]s)?))?$/, '/index.js'],
-  [/(?:[\/]?(?:index(?:\.[tj]s)?))?$/, '/index.ts'],
+  [/(?:[\\/]?(?:index(?:\.[tj]s)?))?$/, '/index.js'],
+  [/(?:[\\/]?(?:index(?:\.[tj]s)?))?$/, '/index.ts'],
 ]
-
 
 const fileExists = (filePath) =>
   new Promise((resolve) => {
     access(filePath, (err) => resolve(!err))
   })
-
 
 /**
  * The load function will take any ts files and run it through esbuild and output a module which we then output
@@ -35,7 +32,8 @@ export async function load(url, context, defaultLoad) {
 
     const tsconfigContents = ts.getParsedCommandLineOfConfigFile('tsconfig.json', {}, ts.sys)
     if (tsconfigContents) {
-      if (tsconfigContents.options.target) transformOptions.target = ts.ScriptTarget[tsconfigContents.options.target]
+      if (tsconfigContents.options.target)
+        transformOptions.target = ts.ScriptTarget[tsconfigContents.options.target]
     }
 
     const { code } = transformSync(source, transformOptions)
@@ -61,6 +59,7 @@ export async function load(url, context, defaultLoad) {
  */
 const resolvedPaths = new Map()
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function resolveURL(pathUrl, parentUrl, specifier) {
   if (resolvedPaths.has(pathUrl)) {
     return resolvedPaths.get(pathUrl)
