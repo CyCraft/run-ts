@@ -3,6 +3,7 @@ import config from '@cycraft/eslint/config'
 export default [
   {
     ignores: ['**/dist/*'],
+    env: { node: true },
   },
   ...config,
   {

@@ -41,7 +41,17 @@ export async function load(url, context, defaultLoad) {
       loader: 'ts',
     }
 
-    const tsconfigContents = ts.getParsedCommandLineOfConfigFile('tsconfig.json', {}, ts.sys)
+    const tsconfigContents = ts.getParsedCommandLineOfConfigFile(
+      'tsconfig.json',
+      {},
+      {
+        ...ts.sys,
+        onUnRecoverableConfigFileDiagnostic: (diagnostic) => {
+          console.error('Unrecoverable TS config error:', diagnostic.messageText)
+          process.exit(1)
+        },
+      },
+    )
     if (tsconfigContents) {
       if (tsconfigContents.options.target)
         transformOptions.target = ts.ScriptTarget[tsconfigContents.options.target]
