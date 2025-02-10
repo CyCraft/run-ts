@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { transformSync } from 'esbuild'
 import { access } from 'node:fs'
 import { URL, fileURLToPath, pathToFileURL } from 'node:url'
