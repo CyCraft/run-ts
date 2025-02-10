@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { transformSync } from 'esbuild'
 import { access } from 'node:fs'
 import { URL, fileURLToPath, pathToFileURL } from 'node:url'
@@ -11,19 +12,30 @@ const SUFFIXES = [
   [/(?:[\\/]?(?:index(?:\.[tj]s)?))?$/, '/index.ts'],
 ]
 
-const fileExists = (filePath) =>
-  new Promise((resolve) => {
+/**
+ * Check if a file exists at the given path
+ *
+ * @param {string} filePath
+ * @returns {Promise<boolean>}
+ */
+function fileExists(filePath) {
+  return new Promise((resolve) => {
     access(filePath, (err) => resolve(!err))
   })
+}
 
 /**
- * The load function will take any ts files and run it through esbuild and output a module which we then output
+ * The load function will take any ts files and run it through esbuild and output a module which we
+ * then output
  */
 export async function load(url, context, defaultLoad) {
   if (EXT_REGEX.test(url)) {
     const { source } = await defaultLoad(url, { format: 'module' })
     /**
-     * @type {import('esbuild').SameShape<import('esbuild').TransformOptions, import('esbuild').TransformOptions>}
+     * @type {import('esbuild').SameShape<
+     *   import('esbuild').TransformOptions,
+     *   import('esbuild').TransformOptions
+     * >}
      */
     const transformOptions = {
       format: 'esm',
@@ -53,14 +65,16 @@ export async function load(url, context, defaultLoad) {
 
   if (url.endsWith('.json')) {
     // We need to assert that the type is json for json files
-    return defaultLoad(url, {...context, importAttributes: { type: 'json' } }, defaultLoad)
+    return defaultLoad(url, { ...context, importAttributes: { type: 'json' } }, defaultLoad)
   }
 
   return defaultLoad(url, context, defaultLoad)
 }
 
-/** Cache urls so we don't have to check the same urls repeatedly, although I believe node does this
- * automatically. In the future we can preemptively add `index.js` etc. when we match other variants
+/**
+ * Cache urls so we don't have to check the same urls repeatedly, although I believe node does this
+ * automatically. In the future we can preemptively add `index.js` etc. when we match other
+ * variants
  */
 const resolvedPaths = new Map()
 
@@ -82,6 +96,7 @@ async function resolveURL(pathUrl, parentUrl, specifier) {
 
 /**
  * Resolve is called whenever an `import` is used to evaluate the url
+ *
  * @param {Parameters<import('node:module').ResolveHook>[0]} specifier
  * @param {Parameters<import('node:module').ResolveHook>[1]} context
  * @param {Parameters<import('node:module').ResolveHook>[2]} nextResolve
