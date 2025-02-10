@@ -77,7 +77,6 @@ export async function load(url, context, defaultLoad) {
  */
 const resolvedPaths = new Map()
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function resolveURL(pathUrl, parentUrl, specifier) {
   if (resolvedPaths.has(pathUrl)) {
     return resolvedPaths.get(pathUrl)
