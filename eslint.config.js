@@ -1,9 +1,16 @@
 import config from '@cycraft/eslint/config'
+import globals from 'globals'
 
 export default [
   {
     ignores: ['**/dist/*'],
-    env: { node: true },
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
   },
   ...config,
   {

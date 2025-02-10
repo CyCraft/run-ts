@@ -15,7 +15,8 @@
   },
   "scripts": {
     "test": "echo none",
-    "release": "eslint && np"
+    "lint": "eslint",
+    "release": "npm run lint && np"
   },
   "engines": {
     "node": ">=20"
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@cycraft/eslint": "^0.4.1",
+    "globals": "^15.14.0",
     "np": "^10.2.0"
   },
   "license": "MIT",
