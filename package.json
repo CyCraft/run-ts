@@ -27,7 +27,7 @@
   "devDependencies": {
     "@cycraft/eslint": "^0.4.3",
     "globals": "^15.15.0",
-    "np": "^10.2.0"
+    "np": "^12.1.1"
   },
   "license": "MIT",
   "funding": "https://github.com/sponsors/mesqueeb",
