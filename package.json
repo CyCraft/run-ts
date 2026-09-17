@@ -16,16 +16,16 @@
   "scripts": {
     "test": "echo none",
     "lint": "eslint",
-    "release": "npm run lint && np"
+    "release": "pnpm run lint && np"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.12"
   },
   "devDependencies": {
-    "@cycraft/eslint": "^0.4.3",
+    "@cycraft/eslint": "^0.4.4",
     "globals": "^15.15.0",
     "np": "^12.1.1"
   },
@@ -35,5 +35,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CyCraft/run-ts.git"
-  }
+  },
+  "packageManager": "pnpm@11.27.0"
 }
