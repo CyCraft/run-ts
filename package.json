@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@cycraft/eslint": "^0.4.4",
-    "globals": "^15.15.0",
+    "globals": "^17.12.0",
     "np": "^12.1.1"
   },
   "license": "MIT",
@@ -36,5 +36,5 @@
     "type": "git",
     "url": "git+https://github.com/CyCraft/run-ts.git"
   },
-  "packageManager": "pnpm@11.27.0"
+  "packageManager": "pnpm@12.4.2"
 }
