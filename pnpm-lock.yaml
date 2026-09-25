@@ -226,6 +226,9 @@ importers:
       bumpp:
         specifier: ^12.3.0
         version: 12.3.0
+      eslint:
+        specifier: ^9.20.1
+        version: 9.20.1(jiti@2.7.0)(supports-color@10.2.2)
       globals:
         specifier: ^17.12.0
         version: 17.12.0

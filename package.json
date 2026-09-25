@@ -27,6 +27,7 @@
   "devDependencies": {
     "@cycraft/eslint": "^0.4.11",
     "bumpp": "^12.3.0",
+    "eslint": "^9.20.1",
     "globals": "^17.12.0"
   },
   "license": "MIT",
