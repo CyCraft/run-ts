@@ -37,5 +37,5 @@
     "type": "git",
     "url": "git+https://github.com/CyCraft/run-ts.git"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.8.1"
 }
